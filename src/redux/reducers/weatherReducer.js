@@ -1,4 +1,4 @@
-// make cases for martial & simple weapons, armor and shields. make state an object with arrays inside.
+//initial query to populate page
 const weatherReducer = (state='', action) =>{
     switch (action.type) {
         case 'SEND_TEST_INFO':
