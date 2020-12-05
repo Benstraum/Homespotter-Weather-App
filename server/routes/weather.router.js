@@ -10,12 +10,35 @@ require('dotenv').config();
  * GET route template
  */
 router.get('/', (req, res) => {
-   axios.get(`http://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=London`)
+   axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=London&days=${6}`)
    .then(response=> {
-    console.log(response.data)   
+    console.log(response.data.forecast)   
     res.send(response.data)
    })
-   .catch(err=> console.log('error inside of /api/weather GET',err))
+   .catch(err=> {console.log('error inside of /api/weather GET',err) 
+   res.sendStatus(404)
+   })
+});
+router.get('/current/:id', (req, res) => {
+   axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${id}&days=4`)
+   .then(response=> {
+    console.log(response.data.forecast)   
+    res.send(response.data)
+   })
+   .catch(err=> {console.log('error inside of /api/weather/current GET',err) 
+   res.sendStatus(404)
+   })
+});
+router.get('/forecast/:id', (req, res) => {
+   console.log(req.params.id)
+   axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${req.params.id}&days=4`)
+   .then(response=> {
+    console.log(response.data.forecast)   
+    res.send(response.data)
+   })
+   .catch(err=>{ console.log('error inside of /api/weather/forecast GET',err) 
+   res.sendStatus(404)
+   })
 });
 
 

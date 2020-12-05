@@ -38,13 +38,13 @@ function CurrentDisplay(props) {
                         <h3>Sky icon</h3>}
                     {/* Tempurature && Farenheight/Celcius Toggle */}
                     {props.state ?
-                        props.isCelcius ? <h1>{props.state.data.current.temp_c} </h1> : <h1>{props.state.data.current.temp_f} </h1>
+                        props.isCelcius ? <h1 >{props.state.data.current.temp_c} </h1> : <h1>{props.state.data.current.temp_f} </h1>
                         :
                         <h3>Temp F or C</h3>}
                     {
-                        <h3>
+                        <h2 >
                             <button onClick={() => setIsCelcius(false)} >°F</button> | <button onClick={() => setIsCelcius(true)}>°C</button>
-                        </h3>
+                        </h2>
                     }
                 </div>
 

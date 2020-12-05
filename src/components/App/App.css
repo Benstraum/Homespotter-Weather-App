@@ -1,3 +1,6 @@
+body, h1, h2, h3{
+    font-family: arial,sans-serif;
+}
 .App {
     margin: auto;
     border-radius: 8px;
@@ -6,7 +9,7 @@
     position: relative;
     padding: 20px 16px 24px;
     background-color: #fff;
-    width: 618px;
+    width: 690px;
     display: block;
     overflow-wrap: break-word;
 }
