@@ -3,21 +3,20 @@ require('dotenv').config();
 const app = express();
 const bodyParser = require('body-parser');
 
-//const weatherRouter = require('./routes/weatherRouter.js')
+const weatherRouter = require('./routes/weather.router.js')
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// cors jazz incase of issues
-//this will allow specified localhosts to interact with local server!!!
-// app.use((req,res, next)=>{
-//   res.header('Access-Control-Allow-Origin',"*");
-//   res.header('Access-Control-Allow-Credentials', "true");
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   next()
-// })
+app.use((req,res, next)=>{
+  res.header('Access-Control-Allow-Origin',"*");
+  res.header('Access-Control-Allow-Credentials', "true");
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next()
+})
+
 /* Routes */
-//app.use('/api/weatherapp', variable for weather app);
+app.use('/api/weather', weatherRouter);
 
 // Serve static files
 app.use(express.static('build'));

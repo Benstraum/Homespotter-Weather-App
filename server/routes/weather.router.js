@@ -8,7 +8,9 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    
+    console.log('in weather router')
+    let data = "we are good!"
+    res.send(data)
 });
 
 /**

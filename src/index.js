@@ -4,10 +4,35 @@ import App from './components/App/App'
 
 import reportWebVitals from './reportWebVitals';
 
+//redux 
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+
+import rootReducer from './redux/reducers'; // imports ./redux/reducers/index.js
+import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
+
+const sagaMiddleware = createSagaMiddleware();
+
+const middlewareList = process.env.NODE_ENV === 'development' ?
+  [sagaMiddleware] :
+  [sagaMiddleware];
+
+const store = createStore(
+  //implements our reducers in our store
+  rootReducer,
+  //applies our saga middleware and others if needed
+  applyMiddleware(...middlewareList),
+);
+
+// tells the saga middleware to use the rootSaga
+// rootSaga contains all of our other sagas
+sagaMiddleware.run(rootSaga);
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
