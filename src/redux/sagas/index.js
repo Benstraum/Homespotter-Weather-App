@@ -1,9 +1,9 @@
 import { all } from 'redux-saga/effects';
-import testSaga from './testSaga.js'
+import weatherSaga from './weatherSaga.js'
 //base saga
 export default function* rootSaga() {
     yield all([
-        testSaga()
+        weatherSaga()
         //insert sagas here
     ]);
   }

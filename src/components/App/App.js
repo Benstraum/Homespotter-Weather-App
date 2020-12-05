@@ -1,24 +1,22 @@
 import React,{useEffect} from 'react';
 import { connect } from 'react-redux'
 
+//Child components
+import CurrentDisplay from '../CurrentDisplay/CurrentDisplay'
+
 function App(props) {
   useEffect(()=>{
-    console.log('hello')
-    props.dispatch({type:'TEST_SAGA'})
+    
   },[])
-  console.log(props.state)
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          {JSON.stringify(props.state)}
-        </p>
+        <h1>Potentially recreate Google weather display</h1>
       </header>
+      <CurrentDisplay/>
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-  state
-});
-export default connect(mapStateToProps)(App);
+
+export default connect()(App);

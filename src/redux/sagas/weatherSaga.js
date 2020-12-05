@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { put, takeEvery } from 'redux-saga/effects';
 
-function* testOurSaga() {
+function* initialDisplay() {
     try {
        const responsePayload = yield axios.get(`/api/weather`);
         yield put({ type: 'SEND_TEST_INFO' ,payload:responsePayload});
@@ -10,8 +10,8 @@ function* testOurSaga() {
     }
 }
 
-function* testSaga() {
-    yield takeEvery('TEST_SAGA', testOurSaga);
+function* weatherSaga() {
+    yield takeEvery('TEST_SAGA', initialDisplay);
 }
 
-export default testSaga;
+export default weatherSaga;

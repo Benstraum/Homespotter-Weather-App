@@ -1,5 +1,5 @@
 // make cases for martial & simple weapons, armor and shields. make state an object with arrays inside.
-const testReducer = (state='', action) =>{
+const weatherReducer = (state='', action) =>{
     switch (action.type) {
         case 'SEND_TEST_INFO':
             console.log('inside of our reducer',action.payload)
@@ -9,4 +9,4 @@ const testReducer = (state='', action) =>{
     };
 }
 
-export default  testReducer;
+export default  weatherReducer;
