@@ -1,0 +1,13 @@
+.current-main h3 a:hover{
+    color:blue
+}
+.current-main h3 a{
+    color: purple;
+}
+.secondHalf{
+    float: right;
+    line-height: 22px;
+    min-width: 43%;
+    padding-left: 5px;
+    padding-top: 2px;
+}

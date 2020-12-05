@@ -1,0 +1,12 @@
+.App {
+    margin: auto;
+    border-radius: 8px;
+    border: 1px solid grey;
+    box-shadow: none;
+    position: relative;
+    padding: 20px 16px 24px;
+    background-color: #fff;
+    width: 618px;
+    display: block;
+    overflow-wrap: break-word;
+}
