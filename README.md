@@ -1,6 +1,6 @@
 # Prerequisites
 Node.js
-Chrome
+Chrome(desktop or mobile view compatable)
 
 # Installation
 Run npm install in your IDE terminal for the project

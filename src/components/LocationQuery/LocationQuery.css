@@ -84,7 +84,8 @@ font-size: 20px;
 pointer-events: none;
 transition: .5s;
 }
-.locationQuery input:focus~label{
+.locationQuery input:focus~label,
+.locationQuery input:active~label{
 top:-14px;  
 left: 0;
 color: blue;

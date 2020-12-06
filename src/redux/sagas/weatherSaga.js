@@ -16,7 +16,6 @@ function* requestedForecastDisplay(action){
     yield put({ type: 'SEND_CURRENT_INFO' ,payload:responsePayload});
     }catch (error) {
         console.log(error)
-        put({type:'SEND_ERROR', payload:error})
     }
 }
 

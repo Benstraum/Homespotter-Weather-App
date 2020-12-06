@@ -7,12 +7,11 @@ function LocationQuery(props) {
   const [location, setLocation] = useState('')
   const sendLocationInfo =(userInput)=>{
     props.dispatch({type:"USER_REQUEST",payload:userInput})
-
   }
   return (
       <div className="locationQuery" style={{display:'inline-flex', alignSelf:'center'}}>
         <input value={location} onChange={e=>setLocation(e.target.value)} />
-        <label htmlFor="input">Location</label>
+       {location ?<label style={{top:'-14px',left: 0,color: 'blue', fontSize: '16px'}} htmlFor="input">Location</label> :<label htmlFor="input">Location</label>}
         {/* Seeing that google had SVGS created for clear and search I 
         thought to use those values instead of using an icon library 
         both buttons handle simple functionality: sending the request and clearing the input */}
@@ -32,7 +31,5 @@ function LocationQuery(props) {
       </div>
   );
 }
-const mapStateToProps = state => ({
- error:state.errorReducer   
-});
-export default connect(mapStateToProps)(LocationQuery);
+
+export default connect()(LocationQuery);
