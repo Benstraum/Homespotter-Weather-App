@@ -1,3 +1,6 @@
+# Hosted site 
+https://homespotter-weather-app.herokuapp.com/
+
 # Prerequisites
 Node.js
 Chrome(desktop or mobile view compatable)
