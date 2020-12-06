@@ -9,6 +9,7 @@
     z-index: 3;
     height: 44px;
     margin: 0 auto;
+    margin-bottom: 10px;
 }
 .locationQuery input{
     background-color: transparent;

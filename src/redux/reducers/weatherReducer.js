@@ -1,5 +1,5 @@
 //initial query to populate page
-const weatherReducer = (state="", action) =>{
+const weatherReducer = (state={data:{current:{}, location:'', forecast:{forecastday:''}}}, action) =>{
     switch (action.type) {
         case 'SEND_CURRENT_INFO':
             console.log('inside of our reducer',action.payload)

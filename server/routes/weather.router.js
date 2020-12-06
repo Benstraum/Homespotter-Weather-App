@@ -10,7 +10,7 @@ require('dotenv').config();
  * GET route template
  */
 router.get('/', (req, res) => {
-   axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=London&days=${6}`)
+   axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=London&days=4`)
    .then(response=> {
     console.log(response.data.forecast)   
     res.send(response.data)
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
    })
 });
 router.get('/current/:id', (req, res) => {
-   axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${id}&days=4`)
+   axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${req.params.id}&days=4`)
    .then(response=> {
     console.log(response.data.forecast)   
     res.send(response.data)
@@ -30,7 +30,6 @@ router.get('/current/:id', (req, res) => {
    })
 });
 router.get('/forecast/:id', (req, res) => {
-   console.log(req.params.id)
    axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${req.params.id}&days=4`)
    .then(response=> {
     console.log(response.data.forecast)   
