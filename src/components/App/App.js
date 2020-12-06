@@ -15,7 +15,7 @@ function App(props) {
   return (
     <div>
       <header className="App-header" style={{textAlign:'center'}}>
-        <h1>Potentially recreate Google weather display</h1>
+        <h1>Benjamins's Weather App</h1>
         <p>
           You can search using: city name, US zip codes, UK postcodes, canada postal codes, metar code, digital airport code, or IP address
         </p>
