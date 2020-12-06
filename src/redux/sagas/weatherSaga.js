@@ -9,26 +9,19 @@ function* initialDisplay() {
         console.log('List get request failed', error);
     }
 }
-function* currentDayRequest(action){
-    try{
-    const responsePayload = yield axios.get(`/api/weather/current/${action.payload}`)
-    yield put({ type: 'SEND_CURRENT_INFO' ,payload:responsePayload});
-    }catch (error) {
-        console.log('List get request failed', error);
-    }
-}
+
 function* requestedForecastDisplay(action){
     try{
     const responsePayload = yield axios.get(`/api/weather/forecast/${action.payload}`)
     yield put({ type: 'SEND_CURRENT_INFO' ,payload:responsePayload});
     }catch (error) {
-        console.log('List get request failed', error);
+        console.log(error)
+        put({type:'SEND_ERROR', payload:error})
     }
 }
 
 function* weatherSaga() {
     yield takeEvery('TEST_SAGA', initialDisplay);
-    yield takeEvery('CURRENT_SAGA', currentDayRequest)
     yield takeEvery('USER_REQUEST', requestedForecastDisplay)
 }
 

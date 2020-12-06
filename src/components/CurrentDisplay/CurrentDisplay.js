@@ -4,33 +4,43 @@ import { connect } from 'react-redux'
 
 function CurrentDisplay(props) {
     useEffect(() => {
-        //I only want it to auto populate on initial upload
+        //I only want it to auto populate on initial upload then the user controls via the searchbar
         props.location === '' && props.dispatch({ type: 'TEST_SAGA' })
-        console.log('hello from current display')
     }, [])
+    //simple funtion to provide a true false statement to use either metric or imperial via redux
     const setIsCelcius = (bool) =>{
         props.dispatch({type:'SET_IS_CELCIUS',payload:bool})
-        console.log(bool)
     }
     return (
+        //Through this component I make use of coditional rendering to swap 
+        //between imperial and metric usits as well as to ensure no crashes trying to access objects that arent there
+
         <div className="Current">
             {/* Header with place, time, and sky condition. Using conditional rendering while querying the weather API */}
             <header className="current-header">
+                {/* Location ,  country  */}
                 {props.location ?
                     <h1>{props.location.name + ', ' + props.location.country}</h1>
                     :
                     <h1>Location</h1>}
+                    {/* Time of updated weather at location */}
                 {props.location ?
                     <h2>{props.current.last_updated}</h2>
                     :
                     <h2>Time</h2>}
+                    {/* Sky condition text */}
                 {props.location ?
                     <div className="skies"><h3>{props.current.condition.text}</h3></div>
                     :
                     <h3>Skies Condition</h3>}
+                    {props.isCelcius?<h4>Metric</h4>
+                    :
+                    <h4>Imperial</h4>
+
+                    }
             </header>
-            <main className="current-main" style={{ display: 'block' }}>
-                <div className='firstHalf' style={{ display: 'inline-flex' }}>
+            <main className="current-main" >
+                <div className='firstHalf' style={{ display: 'flex' }}>
                     {/* Icon */}
                     {props.location ?
                         <img src={props.current.condition.icon} alt="sky condition visual aid"></img>

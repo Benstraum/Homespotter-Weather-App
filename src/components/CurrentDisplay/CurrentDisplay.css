@@ -8,7 +8,7 @@
     font-size: large !important;
     color: #5f5d5d !important;
 }
-.current-header > h2, h3{
+.current-header > h2, h3, h4{
     padding: 0;
     margin: 0;
     font-weight: lighter !important;
@@ -17,32 +17,47 @@
 }
 .current-main{
     padding-top:10px;
+    justify-content: space-between; 
 }
 .firstHalf >h1{
     font-size:45px;
 }
 
+
 .firstHalf> h2 {
     font-weight: lighter !important;
-    font-size: large !important;
+    font-size: small !important;
 }
 .current-main h2 >button{
     background: none ;
     text-decoration: none;
     border-top: 0;
-  border-right: 0;
-  border-bottom: 0;
-  border-left: 0;
-  color: black 
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    color: black 
 }
+@media only screen and (min-width: 600px){
+    .current-main{
+        display: flex;
+       }
+   }
+@media only screen and (max-width: 600px){
+    .Current{
+        text-align: center;
+    }
+    .current-main{
+            display:inline-block;
+            
+       }
+   }
 .current-main h2 button:hover{
-    color:blue
+    color:purple
 }
 .current-main h2 button{
-    color: purple;
+    color: blue;
 }
 .secondHalf{
-    float: right;
     line-height: 22px;
     min-width: 43%;
     padding-left: 5px;

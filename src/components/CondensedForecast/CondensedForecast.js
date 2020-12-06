@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './CondensedForecast.css'
 import { connect } from 'react-redux'
 
 function CondensedForecast(props) {
  let index = props.index
- console.log(props.forecastday[index])
   return (
-      <>
-        {props.forecastday ?
+      <> 
+      {/* Conditional rendering so that once the api bring the necessary information then the items will render */}
+        {props.forecastday &&
         <div className="condensedForecast">
         <h3>{props.forecastday[`${index}`].date}</h3>
         <br/>
@@ -15,22 +15,21 @@ function CondensedForecast(props) {
           <br/>
           <div className="highLow">
             {props.isCelcius ? 
-                  <h3>{props.forecastday[`${index}`].day.maxtemp_c}° </h3>
+                  <h3>H {props.forecastday[`${index}`].day.maxtemp_c}° </h3>
                   : 
-                  <h3>{props.forecastday[`${index}`].day.maxtemp_f}°</h3>
+                  <h3>H {props.forecastday[`${index}`].day.maxtemp_f}°</h3>
                   }
           {
             props.isCelcius ? 
-                  <h3 >{props.forecastday[`${index}`].day.mintemp_c}°</h3>
+                  <h3 >L {props.forecastday[`${index}`].day.mintemp_c}°</h3>
                   : 
-                  <h3>{props.forecastday[`${index}`].day.mintemp_f}°</h3>
+                  <h3>L {props.forecastday[`${index}`].day.mintemp_f}°</h3>
             
           }
           </div>
           
         </div>
-        :
-        <div></div>
+       
 }
       </>
   );

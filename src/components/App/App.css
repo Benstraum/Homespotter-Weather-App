@@ -1,18 +1,32 @@
-body, h1, h2, h3, p{
+body, h1, h2, h3, p, label{
     font-family: arial,sans-serif;
 }
 #App {
     margin: auto;
     border-radius: 8px;
-    border: 1px solid grey;
+   
     box-shadow: none;
     position: relative;
-    padding: 30px 20px 28px;
+    padding: 24px 10px 24px;
     background-color: #fff;
-    width: 690px;
+    
     display: block;
     overflow-wrap: break-word;
 }
+@media only screen and (min-width: 600px){
+    #App{
+        max-width: 690px;
+        border: 1px solid grey;
+       }
+   }
+@media only screen and (max-width: 600px){
+    #App{
+        display:inline-block;
+           width:100%;
+           border: 0px solid grey;
+       }
+   }
+
 img{
     width: 100px;
     height: auto;

@@ -1,10 +1,10 @@
 .locationQuery {
     background: #fff;
-    display: flex;
+    display: inline-flex;
     border: 1px solid #898b8f;
     box-shadow: none;
     height: 39px;
-    width: 700px;
+    width: 100%;
     border-radius: 8px;
     z-index: 3;
     height: 44px;
@@ -74,4 +74,19 @@ color:red
     border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
     box-shadow: 0 1px 1px rgba(5,5,5,.1);
 
+}
+.locationQuery> label{
+position: absolute;
+top: 20px;
+left: 0;
+padding: 14px 14px 14px;
+font-size: 20px;
+pointer-events: none;
+transition: .5s;
+}
+.locationQuery input:focus~label{
+top:-14px;  
+left: 0;
+color: blue;
+font-size: 16px;
 }

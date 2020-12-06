@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css'
 import { connect } from 'react-redux'
 
@@ -7,28 +7,26 @@ import CurrentDisplay from '../CurrentDisplay/CurrentDisplay'
 import LocationQuery from '../LocationQuery/LocationQuery';
 import CondensedForecast from '../CondensedForecast/CondensedForecast';
 
-function App(props) {
-  useEffect(() => {
-
-  }, [])
-  let arr = [0,1,2]
+function App() {
+  //just using the expected 3 day forecast so I've created an arr to use to map through repeatable components
+  let arr = [0, 1, 2]
   return (
     <div>
-      <header className="App-header" style={{textAlign:'center'}}>
-        <h1>Benjamins's Weather App</h1>
-        <p>
-          You can search using: city name, US zip codes, UK postcodes, canada postal codes, metar code, digital airport code, or IP address
-        </p>
-        
+      <header className="App-header" style={{ textAlign: 'center' }}>
+        <h1>Forecast App</h1>
+        <h2>search for weather near you!</h2> 
       </header>
       <main id="App">
-      <LocationQuery/>
+        {/* sourcing in search and Current day display */}
+        <LocationQuery />
         <CurrentDisplay />
-        <div className="dividerH"/>
-        <div style={{display:'flex', justifyContent:'space-around'}}>
-        {arr.map((x)=>{
-          return <CondensedForecast index={x} />
-        })}
+        <br />
+        <div className="dividerH" />
+        {/* repeated component mapped three times in a row for forecasted days at the bottom */}
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          {arr.map((x) => {
+            return <CondensedForecast key={x} index={x} />
+          })}
         </div>
       </main>
     </div>
